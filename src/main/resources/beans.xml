@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <beans>
-    <bean id="roleDao" class="core.dao.impl.RoleDaoImpl"/>
-    <bean id="roleService" class="core.service.impl.RoleServiceImpl"/>
+    <bean id="roleDao" class="core.dao.impl.RoleDaoImpl">
+    </bean>
+
+    <bean id="roleService" class="core.service.impl.RoleServiceImpl">
+        <!-- 配置类中需要的依赖对象信息 -->
+        <property name="RoleDao" ref="roleDao"/>
+    </bean>
 </beans>

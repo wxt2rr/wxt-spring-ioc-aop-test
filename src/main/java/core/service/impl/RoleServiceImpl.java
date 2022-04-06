@@ -20,8 +20,14 @@ public class RoleServiceImpl implements RoleService {
     // 直接声明依赖对象，怎么将对象初始化呢，暂时通过代码块
     private RoleDao roleDao;
 
-    {
-        roleDao = (RoleDao) BeanFactory.getBean("roleDao");
+    //{
+    //    roleDao = (RoleDao) BeanFactory.getBean("roleDao");
+    //}
+
+    // 通过代码块方式还是需要根据对应的名称或者id获取对应的对象，能不能不将id写死到代码中，我们改为通过set或者构造方法对依赖对象赋值
+
+    public void setRoleDao(RoleDao roleDao) {
+        this.roleDao = roleDao;
     }
 
     @Override
