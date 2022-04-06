@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+    <bean id="roleService" class="core.service.impl.RoleServiceImpl"/>
+
+    <bean id=""/>
+</beans>

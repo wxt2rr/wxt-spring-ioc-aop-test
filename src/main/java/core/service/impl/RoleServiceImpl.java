@@ -1,7 +1,7 @@
 package core.service.impl;
 
 import core.dao.RoleDao;
-import core.dao.RoleDaoImpl;
+import core.dao.impl.RoleDaoImpl;
 import core.pojo.ResultVo;
 import core.pojo.RoleDto;
 import core.service.RoleService;

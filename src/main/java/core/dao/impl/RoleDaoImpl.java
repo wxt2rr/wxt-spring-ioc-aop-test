@@ -1,6 +1,7 @@
-package core.dao;
+package core.dao.impl;
 
 import com.alibaba.druid.pool.DruidPooledConnection;
+import core.dao.RoleDao;
 import core.pojo.RoleDto;
 import core.util.DataSourceUtil;
 
@@ -9,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoleDaoImpl implements RoleDao{
+public class RoleDaoImpl implements RoleDao {
 
     @Override
     public List<RoleDto> queryRoleList() {
