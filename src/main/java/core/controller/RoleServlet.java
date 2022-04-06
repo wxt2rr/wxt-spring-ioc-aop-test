@@ -18,7 +18,13 @@ public class RoleServlet extends HttpServlet {
 
     //private RoleService roleService = new RoleServiceImpl();
 
-    private RoleService roleService = (RoleService) BeanFactory.getBean("roleService");
+    //private RoleService roleService = (RoleService) BeanFactory.getBean("roleService");
+
+    private RoleService roleService;
+
+    {
+        roleService = (RoleService) BeanFactory.getBean("roleService");
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
