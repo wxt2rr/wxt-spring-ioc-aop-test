@@ -1,6 +1,5 @@
 package core.factory;
 
-import jdk.internal.util.xml.SAXParser;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;

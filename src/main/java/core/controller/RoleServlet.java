@@ -1,5 +1,6 @@
 package core.controller;
 
+import core.factory.BeanFactory;
 import core.pojo.ResultVo;
 import core.service.RoleService;
 import core.service.impl.RoleServiceImpl;
@@ -15,7 +16,9 @@ import java.io.PrintWriter;
 @WebServlet(name = "role", urlPatterns = "/role")
 public class RoleServlet extends HttpServlet {
 
-    private RoleService roleService = new RoleServiceImpl();
+    //private RoleService roleService = new RoleServiceImpl();
+
+    private RoleService roleService = (RoleService) BeanFactory.getBean("roleService");
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
