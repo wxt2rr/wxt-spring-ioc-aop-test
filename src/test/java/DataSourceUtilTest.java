@@ -1,4 +1,6 @@
 import com.alibaba.druid.pool.DruidPooledConnection;
+import core.dao.RoleDao;
+import core.dao.impl.RoleDaoImpl;
 import core.util.DataSourceUtil;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,5 +15,12 @@ public class DataSourceUtilTest {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void updateTest(){
+        RoleDao roleDao = new RoleDaoImpl();
+        int i = roleDao.updateById(1, "100");
+        System.out.println(i);
     }
 }

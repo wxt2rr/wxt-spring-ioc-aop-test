@@ -1,12 +1,17 @@
 package core.service.impl;
 
+import com.alibaba.druid.pool.DruidPooledConnection;
 import core.dao.RoleDao;
 import core.dao.impl.RoleDaoImpl;
 import core.factory.BeanFactory;
 import core.pojo.ResultVo;
 import core.pojo.RoleDto;
 import core.service.RoleService;
+import core.util.ConnUtil;
+import core.util.DataSourceUtil;
+import core.util.TransactionUtil;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class RoleServiceImpl implements RoleService {
@@ -35,5 +40,49 @@ public class RoleServiceImpl implements RoleService {
         List<RoleDto> list = roleDao.queryRoleList();
 
         return new ResultVo(200, "success", list);
+    }
+
+    @Override
+    public ResultVo update(String id, String name) {
+        Boolean result = false;
+        try{
+            // 开启事务
+            //ConnUtil.getInstance().get().setAutoCommit(false);
+           // TransactionUtil.open();
+
+            int i = roleDao.updateById(Integer.parseInt(id), name);
+
+            // 模拟异常，这里两个update应该在同一个事务里边，怎么办？所以需要将数据库层面的事务上升到service层来控制
+            // 数据库执行sql时，每个conn是一个事务，所以我们需要将两个update的conn使用同一个，怎么使用同一个？可以将获取conn的代码提取出来，
+            // 每个service请求（线程）对应一个conn
+            int temp = 1 / 0;
+
+            int i1 = roleDao.updateById(Integer.parseInt(id), name + "v2");
+
+            result = i == i1 && i == 1;
+
+            // 提交事务
+            //ConnUtil.getInstance().get().commit();
+          //  TransactionUtil.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            // 回滚事务
+            try {
+                //ConnUtil.getInstance().get().rollback();
+            //    TransactionUtil.rollback();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }finally {
+            // 关闭链接
+            try {
+                //ConnUtil.getInstance().get().close();
+            //    TransactionUtil.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return new ResultVo(200, "success", result);
     }
 }
