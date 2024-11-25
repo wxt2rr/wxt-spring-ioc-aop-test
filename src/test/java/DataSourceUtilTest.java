@@ -1,7 +1,7 @@
 import com.alibaba.druid.pool.DruidPooledConnection;
-import core.dao.RoleDao;
-import core.dao.impl.RoleDaoImpl;
-import core.util.DataSourceUtil;
+import simple.dao.RoleDao;
+import simple.dao.impl.RoleDaoImpl;
+import simple.util.DataSourceUtil;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-import core.factory.BeanFactory;
+import simple.factory.BeanFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

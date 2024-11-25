@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="wxt-spring-ioc-aop-test" />
+        <module name="wxt-spring" />
       </profile>
     </annotationProcessing>
   </component>

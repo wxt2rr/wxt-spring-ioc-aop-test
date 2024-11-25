@@ -1,12 +1,8 @@
-import core.dao.RoleDao;
-import core.factory.BeanFactory;
-import core.factory.ProxyFactory;
-import core.pojo.ResultVo;
-import core.pojo.RoleDto;
-import core.service.RoleService;
+import simple.factory.BeanFactory;
+import simple.factory.ProxyFactory;
+import simple.pojo.ResultVo;
+import simple.service.RoleService;
 import org.junit.Test;
-
-import java.util.List;
 
 public class RoleServiceTest {
 
